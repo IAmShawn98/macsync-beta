@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Data -->
+    <meta http-equiv="X-UA-Compatible" content="IE=12" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="Shawn Luther" name="author">
+    <!-- Character Encoding. -->
+    <meta charset="UTF-8">
+    <!-- Fav Icon -->
+    <link href="./imgs/faves/logoFave.ico" rel="shortcut icon" type="image/ico">
+    <!-- Tab Title -->
+    <title>GTM MacSync | Home</title>
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <!-- Toggle CSS -->
+    <link href="./css/titatoggle-dist-min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./css/dashboard.css" rel="stylesheet">
+    <!-- Animate.css Package -->
+    <link href="./css/animate.css" rel="stylesheet">
+    <!-- Font Awesome (Icons) -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<!-- Page Body -->
+<body class="animated fadeIn">
+    <!-- Header -->
+    <div class="justify-content-between flex-wrap flex-md-nowrap pt-3 pb-2"></div>
+    <nav class="navbar navbar-dark fixed-top bg-dark text-center flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-2 col-md-2 mr-0" href="./index.html">
+      <img width="250" src="./imgs/logos/Logo Evolution/logo7.png" alt="MacSyncLogo" />
+      <img style="position: relative; right: 110px; top: -10px;" width="80" src="./imgs/logos/faveSync.png" id="spin" alt="syncLogo">
+    </a>
+    <a style="font-size: 200%;" class="nav-link disabled" href="#">Build: V1.0.0-beta</a>
+    </nav>
+    <!-- Content Wrapper -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- SideBar (Repositories) -->
+            <nav class="px-3 mt-5 mb-1 col-md-2 d-none d-md-block bg-light sidebar list-group-item">
+                    <span id="treeView">
+                            <span class="treeRepositories">
+                                <span class="caret list-group-item" style="padding: 10px;">
+                                    <i aria-hidden="true" class="fa fa-tree text-success"></i> File Repositories
+                                </span>
+                                <span class="nested">
+                                    <span class="caret animated slideInDown list-group-item" style="padding: 10px;">
+                                        <i class="fa fa-folder text-primary" id="subIndent"></i> Tax Automatioin Services
+                                    </span>
+                                    <span class="nested">
+                                        <span class="caret animated slideInDown list-group-item" id="subIndent" style="padding: 10px;">
+                                            <i class="fa fa-folder text-primary"></i> Excel Macros
+                                        </span>
+                                        <span class="nested">
+                                            <a class="caret animated slideInDown list-group-item" href="../MacroMisc.html" id="subIndent"
+                                                style="padding: 10px;">
+                                                <i class="fa fa-table "></i> Macro Misc
+                                            </a>
+                                        </span>
+                                 </span>
+                             </span>
+                        </span>
+                    </span>
+            </nav>
+            <main class="float-left col-md-10 ml-sm-auto col-lg-15 px-4" role="main">
+                <!-- This lazily adds space between the Navbar and body content. -->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+                <!-- Welcome to GTM MacSync -->
+                <div class="container-fluid" style="width: 100%; height: 78%;">
+                    <!-- Global Alerts -->
+                    <div id="alertVersionWarning" class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong><i class="p-1 fa fa-exclamation-triangle" style="font-size: 210%;"></i></strong> You are using MacSync V1.0.0-beta which is a test build of GTM MacSync. If you experience any issues be sure to report them so we can continue to stabilize our services and enhance your experience. <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <!-- Image Slider -->
+                    <div class="bd-example">
+                        <div class="carousel slide" data-ride="carousel" id="imgSlider">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img alt="QuoteCloud" src="./imgs/Carousel/Cloud.png" id="wowowow" style="position: absolute; z-index: 1; height: 600px; right: 288px;"> <img alt="First slide [800x400]" class="d-block w-100" data-holder-rendered="true" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" height="740" src="./imgs/Carousel/stock1.jpg" style="filter: brightness(50%);" width="1280">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h1 class="text-info" style="font-size: 400%;"><b><span class="text-primary">GTM</span> <span class="text-success">MacSync</span></b></h1>
+                                        <h5 class="p-1" style="font-size: 240%;">A singular repository built to hold your important tax software.</h5>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img alt="imgStock1" class="d-block w-100" data-holder-rendered="true" height="740" src="./imgs/Carousel/stock2.jpg" style="filter: brightness(50%);" width="1280">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h1 class="text-info" style="font-size: 400%;"><b><span class="text-primary">GTM</span> <span class="text-success">MacSync</span></b></h1>
+                                        <h5 class="p-1" style="font-size: 240%;">Manage and share files with others, synchronously.</h5>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img alt="imgStock1" class="d-block w-100" data-holder-rendered="true" height="740" src="./imgs/Carousel/stock3.jpg" width="1280">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h1 class="text-info" style="font-size: 400%;"><b><span class="text-primary">GTM</span> <span class="text-success">MacSync</span></b></h1>
+                                        <h5 class="p-1" style="font-size: 240%;">Get the latest version of any file you need, whenever you need it.</h5>
+                                    </div>
+                                </div>
+                            </div><a class="carousel-control-prev" data-slide="prev" href="#imgSlider" role="button"><span aria-hidden="true" class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span></a> <a class="carousel-control-next" data-slide="next" href="#imgSlider" role="button"><span aria-hidden="true" class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"></div>
+                    <div class="container">
+                        <!-- GTM MacSync (ABOUT) -->
+                        <h1 class="text-info">Why <b><span class="text-primary">'GTM</span> <span class="text-success">MacSync'</span>?</b></h1>
+                        <hr class="featurette-divider">
+                        <div class="row featurette">
+                            <div class="col-md-7">
+                                <h2 class="featurette-heading text-primary">1. GTM MacSync - <span class="text-success">Synchronize Your Team!</span></h2>
+                                <p class="lead text-primary">GTM MacSync is a flexible tool designed to keep you and your team connected to the software and documentation you need on a daily basis. No longer will you have to spend time tagging all of your colleagues into group emails about one file! GTM MacSync keeps all your files <b>categorized</b> and <b>organized</b>, synchronously!</p>
+                            </div>
+                            <div class="col-md-5"><img alt="500x500" class="featurette-image img-fluid mx-auto" data-holder-rendered="true" src="./imgs/indexPreviews/stockSnap1.jpg" style="width: 800px; height: 400px;"></div>
+                        </div>
+                        <hr class="featurette-divider">
+                        <div class="row featurette">
+                            <div class="col-md-7 order-md-2">
+                                 <h2 class="featurette-heading text-success">2. GTM MacSync - <span class="text-primary">Easy to Learn!</span></h2>
+                                <p class="lead text-success">You are given your own <b>Repository Branch</b> containing a unique <b>Sync Table</b> which holds all of your important files and data. You can upload, view, edit, download, and delete any data you desire to suit you and your teams needs. All of the files uploaded to your table are shared globally with everybody in your team connected to the network. This way, nobody is left without the latest version of any piece of required software or documentation!</p>
+                            </div>
+                            <div class="col-md-5 order-md-1"><img alt="500x500" class="featurette-image img-fluid mx-auto" data-holder-rendered="true" src="./imgs/indexPreviews/stockSnap2.png" style="width: 800px; height: 400px;"></div>
+                        </div>
+                        <hr class="featurette-divider">
+                        <div class="row featurette">
+                            <div class="col-md-8">
+                                <h2 class="featurette-heading text-primary">3. GTM MacSync - <span class="text-success">Our Goal.</span></h2>
+                                <p class="lead text-primary">We strive to keep you and your team organized and updated with the latest and greatest of all your files and documentation. GTM MacSync makes finding the data you need simple, by providing a reliable and clean interface to combat file clutter and data confliction so you can get back to the projects that matter most. Whatever the project may be, we've got your back.</p>
+                            </div>
+                        </div>
+                        <hr class="featurette-divider">
+                    </div>
+                </div>
+            </main>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"></div>
+        </div>
+    </div>
+    <!-- Scroll back to the top. -->
+    <button onclick="topFunction();" class="animated fadeInRight btn btn-info" id="btnScrollTop"><i class="animated jello infinite fa fa-arrow-up"></i></button>
+    
+    <!-- jQuery script -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js">
+
+    </script> 
+    <!-- Bootstrap + Popper.js + BugReports.js + treeView.js + localStorageEvents.js, etc -->
+    <script src="./js/topScroll.js"></script>
+    <script src="./js/bootstrap-notify.js"></script>
+    <script src="./js/localStorageEvents.js">
+    </script> 
+    <script src="./js/treeView.js">
+    </script> 
+    <script src="./js/popper.min.js">
+    </script> 
+    <script src="./js/bootstrap.min.js">
+    </script> 
+    <script>
+        
+    // 'IE Sniffer'.
+    var userAgent = window.navigator.userAgent;
+    if (userAgent.indexOf("Trident/7.0") > -1)
+      $("#IEDetection").show();
+    else if (userAgent.indexOf("Trident/6.0") > -1)
+      $("#IEDetection").show();
+    else if (userAgent.indexOf("Trident/5.0") > -1)
+      $("#IEDetection").show();
+    else
+      console.log("Compatibility Detection: The user is using a compatible browser!");
+    $(document).ready(function(){
+    
+        // Let the user know their feedback was sent!
+        $( "#feedBackBtn" ).click(function() {
+            // Once data is submit, clear the form.
+            setTimeout(function(){document.getElementById("sendersName").value = "", document.getElementById("ReportDescription").value = "";}, 100);
+
+            // Notify the user their report was sent.
+
+            // Notification sound data.
+            var audio = new Audio('./audio/success.mp3');
+            // Show notification.
+            $.notify({
+                // Notify Settings.
+                icon: 'fa fa-exclamation-triangle',
+                title: '<b>Report Bug: </b> ',
+                message: 'Your feedback was sent, thank you for your time!',
+            })
+            // Trigger notification sound.
+            audio.play();
+
+                });
+            });
+    </script>
+</body>
+</html>

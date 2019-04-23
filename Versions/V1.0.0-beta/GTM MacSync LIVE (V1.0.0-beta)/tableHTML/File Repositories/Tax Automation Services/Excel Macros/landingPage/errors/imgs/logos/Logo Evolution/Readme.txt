@@ -1,0 +1,1 @@
+This is the evolution of the GTM MacSync logo.

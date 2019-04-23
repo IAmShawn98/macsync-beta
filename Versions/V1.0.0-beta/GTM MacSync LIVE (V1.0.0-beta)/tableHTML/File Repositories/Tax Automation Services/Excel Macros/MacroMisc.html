@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta Data -->
+  <meta http-equiv="X-UA-Compatible" content="IE=12" />
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <meta content="Shawn Luther" name="author">
+
+  <!-- Character Encoding. -->
+  <meta charset="UTF-8">
+
+  <!-- Fav Icon -->
+  <link rel="shortcut icon" type="image/ico" href="./imgs/faves/logoFave.ico" />
+
+  <!-- Tab Title -->
+  <title>GTM MacSync | File Repository</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Toggle CSS -->
+  <link href="./css/titatoggle-dist-min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="./css/dashboard.css" rel="stylesheet">
+
+  <!-- Animate.css Package -->
+  <link href="./css/animate.css" rel="stylesheet">
+
+  <!-- Font Awesome (Icons) -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<!-- Page Body -->
+
+<body class="animated fadeIn" style="overflow-x:hidden;">
+  <!-- Header -->
+  <nav class="navbar navbar-dark fixed-top bg-dark text-center flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-2 col-md-2 mr-0" href="../Excel Macros/landingPage/index.html">
+      <img width="250" src="./imgs/logos/Logo Evolution/logo7.png" alt="MacSyncLogo" />
+      <img style="position: relative; right: 110px; top: -10px;" width="80" src="./imgs/logos/faveSync.png" id="spin" alt="syncLogo">
+      <a style="font-size: 200%;" class="nav-link disabled" href="#">Build: V1.0.0-beta</a>
+    </a>
+  </nav>
+
+  <!-- Content Wrapper -->
+  <div class="container-fluid">
+    <div class="row"> 
+      <!-- SideBar -->
+      <nav class="px-3 mt-5 mb-1 col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <nav class="px-3 mt-5 mb-1 col-md-2 d-none d-md-block bg-light sidebar list-group-item">
+            <!-- DB Repository Tree -->
+            <span id="treeView">
+              <span class="treeRepositories">
+                <span id="fRepositories" class="caret list-group-item" style="padding: 10px;">
+                  <i aria-hidden="true" class="fa fa-tree text-success"></i> File Repositories
+                </span>
+                <span class="nested">
+                  <span id="TAS" class="caret animated slideInDown list-group-item" style="padding: 10px;">
+                    <i class="fa fa-folder text-primary subIndent"></i> Tax Automatioin Services
+                  </span>
+                  <span class="nested">
+                    <span id="excelMacros" class="caret animated slideInDown list-group-item"
+                      style="padding: 10px;">
+                      <i class="fa fa-folder text-primary subIndent"></i> Excel Macros
+                    </span>
+                    <span id="macroMisc" class="nested">
+                      <a class="caret animated slideInDown list-group-item subIndent" href="JavaScript:void(0);"
+                        style="padding: 10px;">
+                        <!-- <i class="fa fa-table "></i> <span class="tName"></span> -->
+                        <i class="fa fa-table "></i> Macro Misc
+                      </a>
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </span>
+          </nav>
+      </nav>
+      <main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
+        <!-- This lazily adds space between the Navbar and body content. -->
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3 border-bottom">
+        </div>
+        <div class="justify-content-between flex-wrap flex-md-nowrap pt-3 pb-2"></div>
+
+        <!-- GLOBAL Alerts -->
+        <div id="alertVersionWarning" class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong><i style="font-size: 210%;" class="p-1 fa fa-exclamation-triangle"></i></strong> You are using
+          MacSync V1.0.0-beta which is a test build of GTM MacSync. If you experience any issues be sure to
+          report them so we can continue to stabilize our services and enhance your experience.
+          <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span
+              aria-hidden="true">&times;</span></button>
+        </div>
+        <div style="display: none;" class="alert alert-danger alert-dismissible fade show" id="IEDetection"
+          role="alert">
+          <strong>Compatibility Error:</strong> 'Internet Explorer' is not compatible with <u>GTM MacSync</u>. Please
+          use
+          a modern compatible Web Browser such as (<b><a href="https://www.google.com/chrome/">Google Chrome</a></b>,
+          <b><a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a></b>
+          or <b><a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft Edge</a></b>). <button
+            aria-label="Close" class="close" data-dismiss="alert" type="button"><span
+              aria-hidden="true">&times;</span></button>
+        </div>
+        <!-- File Path -->
+        <ol style="font-size: 150%;" class="breadcrumb row">
+          <li class="breadcrumb-item"><a href="JavaScript:Void(0);">Home</a></li>
+          <li class="breadcrumb-item"><a href="JavaScript:Void(0);">Tax Automation Services</a></li>
+          <li class="breadcrumb-item"><a href="JavaScript:Void(0);">Excel Macros</a></li>
+          <li class="breadcrumb-item">Macro Misc</li>
+        </ol>
+        <!-- DB Connection Status -->
+        <div class="breadcrumb row">
+          <h5 class="row text-info mx-1">Database Connection Status:
+            <div id="DBLoadNormal" class="mx-2 spinner-border text-warning" role="status"></div>
+            <div style="display: none;" id="DBLoadLonger" class="mx-2 spinner-border text-danger" role="status"></div>
+            <div style="display: none;" id="cStatusOffline" class="animated bounce mx-2 text-danger">
+              net::ERR_INTERNET_DISCONNECTED</div>
+            <div style="display: none;" id="cStatusOfflineResolve" class="animated bounce mx-2 text-danger">
+              net::RESOLVING CONNECTION</div>
+            <div id="cStatusOnline" class="animated bounce mx-2 text-success"></div>
+          </h5>
+        </div>
+        <!-- Jumbotron & MacSync Tips -->
+        <div class="jumbotron row" style="padding: 60px;">
+          <div class="col-md-6">
+            <div class="textGroup">
+              <p style="margin-right: 40%;" class="text-center display-4 text-primary">MacSync Tips</p>
+              <div id="testimonial-container">
+                <p style="display: none;" class="lead" id="one">You are viewing a GTM MacSync <b class='text-info'>File
+                    Repository Branch</b>.<br> All of the files below are fully updated to the latest version <br>and
+                  are ready to be downloaded and managed. If you are <br>looking to upload a file to this table then
+                  navigate to <br><b class='text-info'>Data Options ---> Upload Files</b> and follow <br>the uploading
+                  instructions to commit <br>a new file to the Sync Table.</p>
+                <p style="display: none; width: 65%;" class="lead" id="two">Deleting files from a <b
+                    class="text-info">Sync Table</b> is very simple. Just copy the <b class="text-info">File ID</b> of
+                  any file you want to delete. Then, navigate to <b class="text-info">Data Options ---> Edit File
+                    Info</b> and paste in your File ID and hit delete. If the file deleted successfully you will get a
+                  notification confirming that it was removed from the table.</b> </p>
+                  <p style="display: none; width: 65%;" class="lead" id="three">You can toggle the Data Options menu by doing 
+                    <br><b class="text-info">Shift + U</b> on your keyboard.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Download GTM MacSync -->
+          <div class="col-md-4">
+            <h2 class="display-4 text-info">Remote Build</h2>
+            <p class="lead">Stay synchronized to all the latest software wherever you go. <br> Download GTM MacSync and use it remotely from anywhere on your computer!</p>
+            <p class="text-info">Please note that downloaded copies of GTM MacSync will not receive daily updates like
+              the official build
+              and will require manual updates downloaded from the official build of GTM MacSync. These updates are not
+              required, but are recommended.</p>
+            <a disabled="true" class="btn btn-success btn-lg" href="https://firebasestorage.googleapis.com/v0/b/macromisc.appspot.com/o/ProgramVersions%2FMacSync-Launcher%2FMacSync%20Launcher.rar?alt=media&token=375b2b97-73af-4aae-812d-feff69f3fe6c" role="button"><i class="fa fa-download" aria-hidden="true"></i> MacSync Launcher V1.0.0</a>
+          </div>
+        </div>
+        <form id="DataTableDBForm" name="DataTableDBForm">
+          <!-- Modal & Tabs -->
+          <div aria-hidden="true" class="modal fade" id="upEdModal" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#fileUpload" onclick="syncShow();"
+                      role="tab">Upload Files</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#fileInfoEdit" onclick="syncHide();" role="tab">Edit
+                      File Info</a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#macVids" onclick="syncHide();" role="tab">MacSync
+                      Tutorials</a>
+                  </li> -->
+                </ul>
+                <!-- Upload Files Page -->
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="fileUpload">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="upEdModalTitle">Upload Files</h5>
+                    </div>
+                    <div class="modal-body">
+                      <div class="input-group">
+                        <label class="input-group-btn">
+                          <span class="btn btn-primary">Browse <input name="file" id="file" style="display: none;" type="file">
+                          </span>
+                        </label> 
+                        <input class="form-control" readonly="true" style="cursor: not-allowed;" type="text" id="fSize" value="Upload File">
+                      </div>
+                      <!-- <div class="dragZone text-center">
+                        <div id="drop_zone">
+                          <label id="fadedLabel">Drag Files Here</label>
+                          <output id="file_list2"></output>
+                          <output id="list"></output>
+                        </div>
+                      </div> -->
+                      <br>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">File Location</span>
+                        </div>
+                        <textarea class="form-control" id="fLink" name="fLink"
+                          placeholder="This field will become the download link for your file. You don't need to add anything to this field, it is an automatic process."
+                          style="height: 92px;"></textarea>
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">File Name</span>
+                        </div><input autocomplete="off" class="form-control" id="fName" name="fName"
+                          placeholder="TB_Macro_V2" type="text">
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">File Author</span>
+                        </div><input autocomplete="off" class="form-control" id="fAuthor" name="fAuthor"
+                          placeholder="Developers Name" type="text">
+                      </div>
+                      <div id="authMail" style="display: none;" class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Email</span>
+                        </div><input autocomplete="off" type="email" class="form-control" id="mailTo" name="mailTo"
+                          placeholder="example@gtmtax.com">
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">File Uploader</span>
+                        </div><input autocomplete="off" class="form-control" id="fUploader" name="fUploader"
+                          placeholder="Your Full Name" type="text">
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Date Published</span>
+                        </div><input autocomplete="off" class="form-control" id="pubDate" name="pubDate"
+                          placeholder="Sync Date">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Edit File Info Page -->
+                  <div class="tab-pane fade" id="fileInfoEdit">
+                    <div class="modal-header">
+                      <h5 class="modal-title wow" id="upEdModalTitle">Edit File Info</h5>
+                    </div> 
+                    <div class="container">
+                      <br>
+                      <div class="input-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">File ID</span>
+                          </div><input autocomplete="off" class="form-control text-warning" id="fID" name="fID"
+                            onkeyup="fileID()" placeholder="-LSLnKBV7DWoerib8VO0" type="text"> <button
+                            class="btn btn-default" onclick="delMac();" type="button"><i class="fa fa-trash text-danger"
+                              aria-hidden="true"></i></button> <label class="text-muted">Paste
+                            the File ID of the file you want to edit here, then, make your desired changes to any of
+                            the fields below. When you are done making changes, hit 'Finish & Close'.</label>
+                        </div>
+                        <h6>Edit data by typing into any field below.</h6>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">File Location</span>
+                          </div>
+                          <input autocomplete="off" onkeyup="changeLink();" class="form-control" id="macLinkNew"
+                            name="macLinkNew" placeholder="File Location URL" style="height: 92px;">
+                          <label class="text-muted">First, upload a new file to the Sync table, then, copy the 'File
+                            Location' link from there and paste it here to update your file to the latest version for
+                            everyone.</label>
+                        </div>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">File Name</span>
+                          </div><input autocomplete="off" class="form-control" id="fileName" name="fileName" 
+                            onkeyup="changeMacName()" placeholder="TB_Macro_V2" type="text">
+                        </div>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">File Author</span>
+                          </div><input autocomplete="off" class="form-control" id="authName" name="authName"
+                            onkeyup="changeAuthDev()" placeholder="Developers Name" type="text">
+                        </div>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">File Uploader</span>
+                          </div><input autocomplete="off" class="form-control" id="upload" name="upload"
+                            onkeyup="changeUploadBy()" placeholder="Your Full Name" type="text">
+                        </div>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Date Published</span>
+                          </div><input style="cursor: not-allowed;" autocomplete="off" class="form-control"
+                            id="dateUploaded" name="dateUploaded" onkeyup="changeUploadedDate()" placeholder="Sync Date"
+                            type="text" disabled>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- MacSync Tutorials Page -->
+                  <div class="tab-pane fade" id="macVids">
+                    <div class="modal-header">
+                      <h4 class="modal-title">MacSync Tutorials</h4>
+                    </div>
+                    <div class="modal-body">
+                      <h5 class="text-success">Available Video Tutorials:</h5>
+                      <a
+                        href="/GTM MacSync/Versions/V1.0.0-beta/GTM MacSync LIVE (V1.0.0-beta)/tableHTML/Video Tutorials/tut1.html"><u>GTM
+                          MacSync - Pack and Upload Files With Documentation</u></a>
+                    </div>
+                  </div>
+                  <div id="oneClickContacting"
+                    class="form-check checkbox-slider-lg checkbox-slider--a  checkbox-slider-success">
+                    <h6>Enable One-Click Contacting?</h6>
+                    <div class="form-check checkbox-slider--default">
+                      <label>
+                        <input onclick="toggleAuthEmail();" type="checkbox"><span class="indicator-success"><button
+                            style="background: #000000; border: none;border-radius: 90%; font-size: 200%;"
+                            class="text-white" type="button" data-toggle="tooltip" data-placement="top"
+                            title="Enabling One-Click Contacting gives developers the option to pin their work email to the files they upload. This way clients know that you are the person to contact if they are having trouble using the provided files. This is recommended for developers and those with a good understanding of the files being uploaded."><i
+                              class="fa fa-question" aria-hidden="true"></i></button></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary" id="save-data" onclick="pushData();" type="submit">Sync
+                      File</button>
+                    <button class="btn btn-info edit-data" data-dismiss="modal" id="edit-data" style="display: none;"
+                      type="button"><i class="fas fa-pencil-alt"></i>
+                      Finish & Close</button>
+                    <button style="display: none;" id="btnProcessing" class="btn btn-primary" type="button" disabled>
+                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      <span>Uploading File</span>
+                    </button>
+                    <button style="display: none;" id="btnReSync" class="btn btn-primary" type="button" disabled>
+                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      <span>Resyncing Table</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- MacSync Table (Rows) -->
+          <div class="table-responsive table-hover">
+            <div class="col-md-3"></div>
+            <table class="table">
+              <thead>
+                <div class="d-flex align-items-center p-2 text-white-50 bg-info rounded">
+                  <img width="110" src="./imgs/faves/faveSync.ico" alt="syncLogo">
+                  <div class="lh-100">
+                    <h1 class="mb-0 text-white lh-100">Sync Table</h1>
+                    <div data-toggle="tooltip" data-placement="right" data-original-title="Data Options">
+                      <h3><span class="tName">Macro Misc</span>
+                        <div class="btn-group"> <button type="button" class="btn btn-info dropdown-toggle"
+                            data-toggle="dropdown"> <i style="font-size: 180%;" class="fa fa-cog"
+                              aria-hidden="true"></i> </button>
+                          <div class="dropdown-menu">
+                            <!-- Dropdown menu links -->
+                            <label class="dropdown-item font-weight-bold">Table Options</label>
+                            <div class="dropdown-divider"></div> <a class="dropdown-item text-info"
+                              href="JavaScript:Void(0);" data-toggle="modal" data-target="#upEdModal"><i
+                                class="fa fa-upload" aria-hidden="true"></i> Upload Files (Shift + U)</a> <a
+                              class="dropdown-item text-info" id="repoReset" onclick="wipeDB();" href="JavaScript:Void(0);"><i
+                                class="fa fa-refresh" aria-hidden="true"></i> Reset Repository</a>
+                          </div>
+                        </div>
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <tr>
+                  <th id="thTable">
+                    <h4><b>File Name</b></h4>
+                  </th>
+                  <th id="thTable">
+                    <h4><b>File Size</b></h4>
+                  </th>
+                  <th id="thTable">
+                    <h4><b>File Author</b></h4>
+                  </th>
+                  <th id="thTable">
+                    <h4><b>File Uploader</b></h4>
+                  </th>
+                  <th id="thTable">
+                    <h4><b>Date Published</b></h4>
+                  </th>
+                  <th id="thTable">
+                    <h4><b>File ID</b></h4>
+                  </th>
+                  <th id="thTable">
+                    <h4><b>Actions</b></h4>
+                  </th>
+                </tr>
+                <!-- MacSync Table (Population) -->
+              <tbody id="syncTableContent" class="animated fadeInDown">
+              </tbody>
+              </thead>
+            </table>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+  <!-- Firebase Definition -->
+  <script src="./js/firebase.js"></script> <!-- https://www.gstatic.com/firebasejs/5.5.4/firebase.js -->
+
+  <!-- jQuery script -->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+  <!-- Sync Table Test. -->
+  <script src="./tableDB/File Repositories/Tax Automation Services/macroMisc.js"></script>
+
+  <!-- Bootstrap + Popper.js + notify.js + localStorageEvents.js + -->
+  <script src="./js/scrollTextTool.js"></script>
+  <script src="./js/scrollTextTool.js"></script>
+  <script src="./js/localStorageEvents.js"></script>
+  <script src="./js/treeView.js"></script>
+  <script src="./js/bootstrap-notify.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+
+  <script>
+    // Handle long load warnings.
+
+    // If the DB takes longer to load, remove normal load.
+    setTimeout(function () { document.getElementById("DBLoadNormal").style.display = "none"; }, 8000);
+    // Once normal load is removed, show the long load message.
+    setTimeout(function () { document.getElementById("DBLoadLonger").style.display = "block"; }, 8000);
+
+    // If the connection is completely lost, let the user know, but continue attempting to connect.
+
+    // Show offline message.
+    setTimeout(function () { document.getElementById("cStatusOffline").style.display = "block"; }, 20000);
+
+    // If the user experience severe offline time, let them know we are still resolving connection.
+
+    // Remove offline message.
+    setTimeout(function () { document.getElementById("cStatusOffline").style.display = "none"; }, 25000);
+    // Let the user know that we are still working to resolve their connection.
+    setTimeout(function () { document.getElementById("cStatusOfflineResolve").style.display = "block"; }, 25000);
+
+    // Dropdown 'File Repositories'.
+    setTimeout(function () { $("#fRepositories").click();}, 400);
+    setTimeout(function () { $("#TAS").click();}, 600);
+    setTimeout(function () { $("#excelMacros").click();}, 1000);
+    setTimeout(function () { $("#macroMisc").click();}, 500);
+
+    // IE 'Sniffer'.
+    var userAgent = window.navigator.userAgent;
+    if (userAgent.indexOf("Trident/7.0") > -1)
+      $("#IEDetection").show();
+    else if (userAgent.indexOf("Trident/6.0") > -1)
+      $("#IEDetection").show();
+    else if (userAgent.indexOf("Trident/5.0") > -1)
+      $("#IEDetection").show();
+    else
+      console.log("Compatibility Detection: The user is using a compatible browser!");
+  </script>
+</body>
+
+</html>

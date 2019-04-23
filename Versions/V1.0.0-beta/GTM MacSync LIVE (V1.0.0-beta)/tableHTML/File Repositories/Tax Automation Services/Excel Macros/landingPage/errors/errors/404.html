@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta Data -->
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <meta content="Shawn Luther" name="author">
+
+  <!-- Character Encoding. -->
+  <meta charset="UTF-8">
+
+  <!-- Fav Icon -->
+  <link rel="shortcut icon" type="image/ico" href="./imgs/faves/faveSync.ico" />
+
+  <!-- Tab Title -->
+  <title>GTM MacSync | Macro Misc</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Toggle CSS -->
+  <link href="./css/titatoggle-dist-min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="./css/dashboard.css" rel="stylesheet">
+
+  <!-- Animate.css Package -->
+  <link href="./css/animate.css" rel="stylesheet">
+
+  <!-- Font Awesome (Icons) -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<!-- Page Body -->
+
+<body class="animated fadeIn" style="overflow-x:hidden;">
+  <!-- Header -->
+  <nav class="navbar navbar-dark fixed-top bg-dark text-center flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-2 col-md-2 mr-0" href="./dashTEST.html">
+      <h1 class="text-info" style="font-size: 180%;"><b><span class="text-primary">GTM</span> <span class="text-success">MacSync</span></b></h1><label
+        class="text-white">Tax Software Repository</label>
+    </a>
+
+  </nav>
+
+  <!-- Content Wrapper -->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- SideBar -->
+      <nav class="px-3 mt-5 mb-1 col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <nav class="px-3 mt-5 mb-1 col-md-2 d-none d-md-block bg-light sidebar list-group-item">
+            <span id="treeView"><span class="treeRepositories"><span class="caret list-group-item" style="padding: 10px;"><i
+                    aria-hidden="true" class="fa fa-tree text-success"></i> File Repositories</span> <span class="nested"><span
+                    class="caret animated slideInDown list-group-item" style="padding: 10px;"><i class="fa fa-folder text-primary"
+                      id="subIndent"></i> Tax Automatioin Services</span> <span class="nested"><span class="caret animated slideInDown list-group-item"
+                      id="subIndent" style="padding: 10px;"><i class="fa fa-folder text-primary"></i> Excel Macros</span>
+                    <span class="nested"><a class="caret animated slideInDown list-group-item" href="./dash.html" id="subIndent"
+                        style="padding: 10px;"><i class="fa fa-table text-"></i> Macro Misc</a></span></span></span></span></span>
+          </nav>
+      </nav>
+
+      <main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
+        <!-- This lazily adds space between the Navbar and Jumbotron. -->
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+
+        <!-- GLOBAL Alerts -->
+
+        <div class="justify-content-between flex-wrap flex-md-nowrap pt-3 pb-2"></div>
+
+        <div id="alertVersionWarning" class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong><i style="font-size: 210%;" class="p-1 fa fa-exclamation-triangle"></i></strong> You are using
+          MacSync V1.0.0-beta which is a test build of GTM MacSync. If you experience any issues be sure to
+          report them so we can continue to stabilize our services and enhance your experience.
+          <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div style="display: none;" class="alert alert-danger alert-dismissible fade show" id="IEDetection" role="alert">
+          <strong>Compatibility Error:</strong> 'Internet Explorer' is not compatible with <u>GTM MacSync</u>. Please
+          use
+          a modern compatible Web Browser such as (<b><a href="https://www.google.com/chrome/">Google Chrome</a></b>,
+          <b><a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a></b>
+          or <b><a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft Edge</a></b>). <button
+            aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <!-- DB Repository Tree -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./dashTEST.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="JavaScript:void(0);">Tax Automation Services</a></li>
+            <li class="breadcrumb-item"><a href="JavaScript:Void(0);">Excel Macros</a></li>
+            <li class="breadcrumb-item"><a href="JavaScript:Void(0);">Macro Misc</a></li>
+            <li class="breadcrumb-item">File Not Found</li>
+          </ol>
+        </nav>
+        <!-- Welcome to GTM MacSync -->
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <img alt="Logo" height="200" src="./imgs//logos/logoAnim.png" width="500" height="200"><img class="animated hinge" style="position: relative; right: 210px; top: -20px; height: 950px; height: 200px;" src="./imgs/faves/faveSync.ico" alt="spinTest" /><br>
+            <h2>404 Not Found.</h2>
+            <p>It looks like the file you were trying to download no longer exists in the database.</p>
+            <a href="./dash.html" class="btn btn-primary">Go Back</a>
+          </div>
+        </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+  <!-- Firebase Definition -->
+  <script src="./js/firebase.js"></script> <!-- https://www.gstatic.com/firebasejs/5.5.4/firebase.js -->
+
+  <!-- jQuery script -->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+  <!-- Bootstrap + Popper.js + notify.js + localStorageEvents.js + -->
+  <script src="./js/localStorageEvents.js"></script>
+  <script src="./js/treeView.js"></script>
+  <script src="./js/bootstrap-notify.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    // IE 'Sniffer'.
+    var userAgent = window.navigator.userAgent;
+    if (userAgent.indexOf("Trident/7.0") > -1)
+      $("#IEDetection").show();
+    else if (userAgent.indexOf("Trident/6.0") > -1)
+      $("#IEDetection").show();
+    else if (userAgent.indexOf("Trident/5.0") > -1)
+      $("#IEDetection").show();
+    else
+      console.log("Compatibility Detection: The user is using a compatible browser!");
+  </script>
+</body>
+
+</html>
