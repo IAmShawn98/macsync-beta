@@ -1,5 +1,8 @@
-# macsync-beta
-<h1>PH</h1>
+<div style="text-align: center;">
+  <h1>GTM MacSync Beta</h1>
+  <strong>V1.0.0-beta</strong>  
+</div>
+
 GTM MacSync is a flexible tool designed to keep you and your team connected to the software and documentation you need on a daily basis. No longer will you have to spend time tagging all of your colleagues into group emails about one file! GTM MacSync keeps all your files categorized and organized, synchronously!
 
 Want to try it out? Launch it here: https://iamshawn98.github.io/macsync-beta/
