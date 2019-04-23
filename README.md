@@ -8,5 +8,6 @@ Want to try it out? Launch it here: https://iamshawn98.github.io/macsync-beta/
 <br>
 <br>
 **** GTM MacSync is an open source tool created for Global Tax Management ****
-
+<br>
+<br>
 A Thing By Shawn
