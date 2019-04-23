@@ -6,6 +6,7 @@ GTM MacSync is a flexible tool designed to keep you and your team connected to t
 <br>
 Want to try it out? Launch it here: https://iamshawn98.github.io/macsync-beta/
 <br>
+<br>
 **** GTM MacSync is an open source tool created for Global Tax Management ****
 
 A Thing By Shawn
