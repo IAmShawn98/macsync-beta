@@ -110,8 +110,8 @@ userDataRef.once("value")
           // Notify Settings.
           icon: 'fa fa-refresh',
           title: '<b>File Integrity:</b> ',
-          
-          
+
+
         })
         // Trigger Notification Sound.
         audio.play();
